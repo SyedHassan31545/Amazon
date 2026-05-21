@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amazon Navbar</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<nav>
+  <!-- ── LEFT ── -->
+  <div class="nav-left">
+    <!-- Logo -->
+    <div class="logo-wrap">
+      <img src="./img/Logo.png" alt="">
+    </div>
+
+    <!-- Delivery -->
+    <div class="delivery">
+      <i class="fa-solid fa-location-dot"></i>
+      <div class="delivery-text">
+        <span class="top">Deliver to</span>
+        <span class="bottom">Pakistan</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CENTER: SEARCH ── -->
+  <div class="search-bar">
+    <select class="search-category">
+      <option>All</option>
+      <option>Books</option>
+      <option>Electronics</option>
+      <option>Clothing</option>
+      <option>Mobiles</option>
+      <option>Home & Kitchen</option>
+      <option>Sports</option>
+      <option>Toys</option>
+      <option>Beauty</option>
+      <option>Grocery</option>
+    </select>
+    <input class="search-input" type="text" placeholder="Search Amazon.pk" />
+    <button class="search-btn" aria-label="Search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </div>
+
+  <!-- ── RIGHT ── -->
+  <div class="nav-right">
+
+    <!-- Language -->
+    <div class="lang-wrap">
+      <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
+        <span class="flag"><img src="./img/united-states.png" alt=""></span>
+        <span class="lang-label">EN</span>
+        <i class="fa-solid fa-caret-down lang-caret"></i>
+      </button>
+      <div class="lang-dropdown" id="langDropdown">
+        <a href="#" class="active" data-flag="🇺🇸" data-lang="EN">🇺🇸 &nbsp;English</a>
+        <a href="#" data-flag="🇵🇰" data-lang="UR">🇵🇰 &nbsp;اردو</a>
+        <a href="#" data-flag="🇸🇦" data-lang="AR">🇸🇦 &nbsp;العربية</a>
+        <a href="#" data-flag="🇩🇪" data-lang="DE">🇩🇪 &nbsp;Deutsch</a>
+        <a href="#" data-flag="🇫🇷" data-lang="FR">🇫🇷 &nbsp;Français</a>
+      </div>
+    </div>
+
+    <div class="nav-divider"></div>
+
+    <!-- Account -->
+    <div class="account-wrap">
+      <div class="nav-btn account-btn">
+        <span class="top">Hello, sign in</span>
+        <span class="bottom">Account &amp; Lists &nbsp;<i class="fa-solid fa-caret-down" style="font-size:10px"></i></span>
+      </div>
+    </div>
+
+    <div class="nav-divider"></div>
+
+    <!-- Returns -->
+    <div class="nav-btn returns-btn">
+      <span class="top">Returns</span>
+      <span class="bottom">&amp; Orders</span>
+    </div>
+
+    <div class="nav-divider"></div>
+
+    <!-- Cart -->
+    <div class="nav-btn cart-btn">
+      <div class="cart-icon-wrap">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </div>
+      <span class="cart-label">Cart</span>
+    </div>
+
+  </div>
+</nav>
+
+<!-- ── SECONDARY NAV ── -->
+<div class="subnav">
+  <a href="#" class="all-menu">
+    <i class="fa-solid fa-bars"></i> All
+  </a>
+  <a href="#">Today's Deals</a>
+  <a href="#">Gift Cards</a>
+  <a href="#">Sell</a>
+  <a href="#">Registry</a>
+  <a href="#">Prime Video</a>
+  <a href="#">Customer Service</a>
+</div>
+
+<!-- ══════════════════════════════════════
+     HERO SECTION
+══════════════════════════════════════ -->
+<section class="hero">
+ 
+  <!-- SLIDER -->
+  <div class="slider" id="slider">
+    <div class="slides-track" id="slidesTrack">
+ 
+      <div class="slide active" style="background:linear-gradient(120deg,#1a2a4a 0%,#2d6a9f 100%)">
+        <img src="./img/hero-slider1.jpg" alt="Fashion Sale" class="slide-img"/>
+      </div>
+ 
+      <div class="slide" style="background:linear-gradient(120deg,#1b3a1b 0%,#2e7d32 100%)">
+        <img src="./img/hero-slider2.jpg" alt="Electronics" class="slide-img"/>
+      </div>
+ 
+      <div class="slide" style="background:linear-gradient(120deg,#3a1a1a 0%,#b71c1c 100%)">
+        <img src="./img/hero-slider3.jpg" alt="Home & Kitchen" class="slide-img"/>
+      </div>
+ 
+      <div class="slide" style="background:linear-gradient(120deg,#2a1a3a 0%,#6a1b9a 100%)">
+        <img src="./img/hero-slider4.jpg" alt="Photography" class="slide-img"/>
+      </div>
+ 
+    </div>
+ 
+    <!-- Fade bottom -->
+    <div class="slider-fade"></div>
+ 
+    <!-- Arrows -->
+    <button class="slider-arrow left" id="prevBtn" aria-label="Previous">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="slider-arrow right" id="nextBtn" aria-label="Next">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+ 
+    <!-- Dots -->
+    <div class="slider-dots">
+      <span class="dot active" data-i="0"></span>
+      <span class="dot" data-i="1"></span>
+      <span class="dot" data-i="2"></span>
+      <span class="dot" data-i="3"></span>
+    </div>
+  </div>
+ 
+  <!-- CARDS GRID — overlaps slider via negative margin -->
+  <div class="cards-grid">
+ 
+    <!-- Card 1: Single big image -->
+    <div class="card">
+      <h3 class="card-heading">Get your game on</h3>
+      <div class="card-single-img">
+        <img src="./img/HC-1.jpg" alt="Men Fashion"/>
+      </div>
+      <a href="#" class="card-link">Shop gaming</a>
+    </div>
+ 
+    <!-- Card 2: 2×2 grid -->
+    <div class="card">
+      <h3 class="card-heading">New home arrivals under $50</h3>
+      <div class="card-grid4">
+        <div class="cg-item">
+          <img src="./img/HC-2.jpg" alt="Laptop"/>
+          <span>Kitchen & Dining</span>
+        </div>
+        <div class="cg-item">
+          <img src="./img/HC-3.jpg" alt="Phones"/>
+          <span>Home Impovement</span>
+        </div>
+        <div class="cg-item">
+          <img src="./img/HC-4.jpg" alt="Headphones"/>
+          <span>Décor</span>
+        </div>
+        <div class="cg-item">
+          <img src="./img/HC-5.jpg" alt="Watch"/>
+          <span>bedding & Bath</span>
+        </div>
+      </div>
+      <a href="#" class="card-link">Shop the latest from home</a>
+    </div>
+ 
+    <!-- Card 3: 2×2 grid -->
+    <div class="card">
+      <h3 class="card-heading">Shop Fashion for less</h3>
+      <div class="card-grid4">
+        <div class="cg-item">
+          <img src="./img/HC-6.jpg" alt="Kitchen"/>
+          <span>Jeans under $50</span>
+        </div>
+        <div class="cg-item">
+          <img src="./img/HC-7.jpg" alt="Furniture"/>
+          <span>Tops under $25</span>
+        </div>
+        <div class="cg-item">
+          <img src="./img/HC-8.jpg" alt="Bedding"/>
+          <span>Dresses under $30</span>
+        </div>
+        <div class="cg-item">
+          <img src="./img/HC-9.jpg" alt="Decor"/>
+          <span>Shoes under $50</span>
+        </div>
+      </div>
+      <a href="#" class="card-link">see all deals</a>
+    </div>
+ 
+    <!-- Card 4: 2×2 grid -->
+    <div class="card">
+      <h3 class="card-heading">Grilling must-have for Dads</h3>
+      <div class="card-grid4">
+        <div class="cg-item">
+          <img src="./img/HC-10.jpg" alt="Gaming"/>
+          <span>Grilling pans</span>
+        </div>
+        <div class="cg-item">
+          <img src="./img/HC-11.jpg" alt="Toys"/>
+          <span>Aprons</span>
+        </div>
+        <div class="cg-item">
+          <img src="./img/HC-12.jpg" alt="Board Games"/>
+          <span>Grilling Tools</span>
+        </div>
+        <div class="cg-item">
+          <img src="./img/HC-13.jpg" alt="Outdoor"/>
+          <span>Gloves</span>
+        </div>
+      </div>
+      <a href="#" class="card-link">Shop Father's Day gifts</a>
+    </div>
+ 
+  </div>
+</section>
+
+<script>
+  // Language dropdown toggle
+  const langBtn = document.getElementById('langBtn');
+  const langDropdown = document.getElementById('langDropdown');
+
+  langBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = langDropdown.classList.toggle('open');
+    langBtn.setAttribute('aria-expanded', open);
+  });
+
+  document.addEventListener('click', () => {
+    langDropdown.classList.remove('open');
+    langBtn.setAttribute('aria-expanded', false);
+  });
+
+  langDropdown.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      langDropdown.querySelectorAll('a').forEach(x => x.classList.remove('active'));
+      a.classList.add('active');
+      langBtn.querySelector('.flag').textContent = a.dataset.flag;
+      langBtn.querySelector('.lang-label').textContent = a.dataset.lang;
+      langDropdown.classList.remove('open');
+    });
+  });
+
+  // Cart count demo (click cart to increment)
+  const cartCount = document.getElementById('cartCount');
+  document.querySelector('.cart-btn').addEventListener('click', () => {
+    cartCount.textContent = parseInt(cartCount.textContent) + 1;
+  });
+
+  // ── SLIDER ──
+  const slides = document.querySelectorAll('.slide');
+  const dots   = document.querySelectorAll('.dot');
+  let current  = 0;
+  let timer;
+ 
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+ 
+  function autoPlay() {
+    timer = setInterval(() => goTo(current + 1), 4000);
+  }
+ 
+  document.getElementById('prevBtn').addEventListener('click', () => { clearInterval(timer); goTo(current - 1); autoPlay(); });
+  document.getElementById('nextBtn').addEventListener('click', () => { clearInterval(timer); goTo(current + 1); autoPlay(); });
+  dots.forEach(d => d.addEventListener('click', () => { clearInterval(timer); goTo(+d.dataset.i); autoPlay(); }));
+ 
+  autoPlay();
+</script>
+</body>
+</html>
