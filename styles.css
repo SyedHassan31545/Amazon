@@ -612,3 +612,134 @@
 .cg-bottom3 .cg-item img {
   height: 75px;
 }
+
+/* ══ IMAGE SLIDER SECTION ══ */
+.img-slider-section {
+  background: #fff;
+  padding: 22px 0 10px;
+  margin: 24px 320px;
+}
+
+.img-slider-heading {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+  padding: 0 20px 14px;
+  margin: 0;
+}
+
+.img-slider-wrapper {
+  position: relative;
+  overflow: hidden;        /* arrows & scrollbar stay inside */
+}
+
+/* ── TRACK ── */
+.img-slider-track {
+  display: flex;
+  gap: 0;
+  overflow: hidden;        /* no native scroll */
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+  will-change: transform;
+}
+
+/* ── EACH SLIDE ── */
+.img-slide {
+  flex: 0 0 calc(100% / 6);   /* 6 images visible */
+  box-sizing: border-box;
+  padding: 0;
+  aspect-ratio: 3/4;
+}
+.img-slide img {
+  width: 150px;
+  height: 250px;
+  /* object-fit: cover; */
+  display: block;
+  transition: transform .3s;
+}
+.img-slide img:hover { transform: scale(1.04); }
+
+/* ── ARROWS (hidden by default, show on wrapper hover) ── */
+.img-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(255,255,255,0.93);
+  border: none;
+  width: 40px;
+  height: 64px;
+  font-size: 17px;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 0 8px rgba(0,0,0,.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .22s;
+}
+.img-arrow-left  { left: 0;  border-radius: 0 4px 4px 0; }
+.img-arrow-right { right: 0; border-radius: 4px 0 0 4px; }
+
+.img-arrow-left-2  { left: 0;  border-radius: 0 4px 4px 0; }
+.img-arrow-right-2 { right: 0; border-radius: 4px 0 0 4px; }
+
+.img-arrow-left-3  { left: 0;  border-radius: 0 4px 4px 0; }
+.img-arrow-right-3 { right: 0; border-radius: 4px 0 0 4px; }
+
+.img-arrow-left-4  { left: 0;  border-radius: 0 4px 4px 0; }
+.img-arrow-right-4 { right: 0; border-radius: 4px 0 0 4px; }
+
+.img-slider-wrapper:hover .img-arrow {
+  opacity: 1;
+  pointer-events: auto;
+}
+.img-arrow:hover { background: #fff; }
+.img-arrow:disabled { opacity: 0 !important; pointer-events: none; }
+
+/* ── CUSTOM SCROLLBAR (hidden by default, show on wrapper hover) ── */
+.img-scrollbar-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #e0e0e0;
+  border-radius: 2px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .22s;
+}
+.img-slider-wrapper:hover .img-scrollbar-wrap {
+  opacity: 1;
+  pointer-events: auto;
+}
+.img-scrollbar-thumb {
+  height: 100%;
+  background: #131921;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background .2s;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.img-scrollbar-thumb:hover { background: #10161d; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .img-slide { flex: 0 0 calc(100% / 4); }
+}
+@media (max-width: 600px) {
+  .img-slide { flex: 0 0 calc(100% / 2.5); }
+  .img-slider-heading { font-size: 17px; }
+}
+
+/* ── THIRD CARDS ROW ── */
+.cards-grid3 {
+  margin-top: 16px;
+}

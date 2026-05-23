@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Amazon Navbar</title>
   <link rel="stylesheet" href="./styles.css">
+  <script defer src="./app.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
@@ -348,62 +349,294 @@
 
 </div>
 
-<script>
-  // Language dropdown toggle
-  const langBtn = document.getElementById('langBtn');
-  const langDropdown = document.getElementById('langDropdown');
+<!-- IMAGE SLIDER SECTION -->
+<section class="img-slider-section">
+  <h2 class="img-slider-heading">Best Sellers in Sports & Outdoors</h2>
 
-  langBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const open = langDropdown.classList.toggle('open');
-    langBtn.setAttribute('aria-expanded', open);
-  });
+  <div class="img-slider-wrapper">
+    <!-- LEFT ARROW-->
+    <button class="img-arrow img-arrow-left" aria-label="Previous">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
 
-  document.addEventListener('click', () => {
-    langDropdown.classList.remove('open');
-    langBtn.setAttribute('aria-expanded', false);
-  });
+    <!-- TRACK -->
+    <div class="img-slider-track" id="imgTrack">
 
-  langDropdown.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      langDropdown.querySelectorAll('a').forEach(x => x.classList.remove('active'));
-      a.classList.add('active');
-      langBtn.querySelector('.flag').textContent = a.dataset.flag;
-      langBtn.querySelector('.lang-label').textContent = a.dataset.lang;
-      langDropdown.classList.remove('open');
-    });
-  });
+      <div class="img-slide"><img src="./img/HS-1.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-2.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-3.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-4.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-5.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-6.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-7.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-8.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-9.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-10.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-11.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-12.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-13.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-14.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-15.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-16.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-17.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-18.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-19.jpg" /></div>
+<div class="img-slide"><img src="./img/HS-20.jpg" /></div>
+<div class="img-slide"><img src="./img/HS-21.jpg" /></div>
 
-  // Cart count demo (click cart to increment)
-  const cartCount = document.getElementById('cartCount');
-  document.querySelector('.cart-btn').addEventListener('click', () => {
-    cartCount.textContent = parseInt(cartCount.textContent) + 1;
-  });
+    </div>
 
-  // ── SLIDER ──
-  const slides = document.querySelectorAll('.slide');
-  const dots   = document.querySelectorAll('.dot');
-  let current  = 0;
-  let timer;
- 
-  function goTo(n) {
-    slides[current].classList.remove('active');
-    dots[current].classList.remove('active');
-    current = (n + slides.length) % slides.length;
-    slides[current].classList.add('active');
-    dots[current].classList.add('active');
-  }
- 
-  function autoPlay() {
-    timer = setInterval(() => goTo(current + 1), 4000);
-  }
- 
-  document.getElementById('prevBtn').addEventListener('click', () => { clearInterval(timer); goTo(current - 1); autoPlay(); });
-  document.getElementById('nextBtn').addEventListener('click', () => { clearInterval(timer); goTo(current + 1); autoPlay(); });
-  dots.forEach(d => d.addEventListener('click', () => { clearInterval(timer); goTo(+d.dataset.i); autoPlay(); }));
- 
-  autoPlay();
-</script>
+    <!-- RIGHT ARROW -->
+    <button class="img-arrow img-arrow-right" aria-label="Next">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <!-- SCROLLBAR (hover par aata hai) -->
+    <div class="img-scrollbar-wrap" id="imgScrollbarWrap">
+      <div class="img-scrollbar-thumb" id="imgScrollbarThumb"></div>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGE SLIDER SECTION 2 -->
+<section class="img-slider-section">
+  <h2 class="img-slider-heading">Popular products in Beauty internationally</h2>
+
+  <div class="img-slider-wrapper">
+    <!-- LEFT ARROW-->
+    <button class="img-arrow img-arrow-left-2" aria-label="Previous">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <!-- TRACK -->
+    <div class="img-slider-track" id="imgTrack-2">
+
+      <div class="img-slide"><img src="./img/HS-22.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-23.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-24.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-25.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-26.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-27.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-28.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-29.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-30.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-31.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-32.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-33.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-34.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-35.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-36.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-37.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-38.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-39.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-40.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-41.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-42.jpg" /></div>
+
+    </div>
+
+    <!-- RIGHT ARROW -->
+    <button class="img-arrow img-arrow-right-2" aria-label="Next">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <!-- SCROLLBAR (hover par aata hai) -->
+    <div class="img-scrollbar-wrap" id="imgScrollbarWrap-2">
+      <div class="img-scrollbar-thumb" id="imgScrollbarThumb-2"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ THIRD CARDS ROW ══ -->
+<div class="cards-grid cards-grid3">
+
+  <!-- Card A: 2x2 grid (same as cards 2-4) -->
+  <div class="card">
+    <h3 class="card-heading">Gaming merchandise</h3>
+    <div class="card-grid4">
+      <div class="cg-item">
+        <img src="./img/C-17.jpg" alt="Watch"/>
+        <span>Apprarel</span>
+      </div>
+      <div class="cg-item">
+        <img src="./img/C-18.jpg" alt="Sneakers"/>
+        <span>Hats</span>
+      </div>
+      <div class="cg-item">
+        <img src="./img/C-19.jpg" alt="Shirts"/>
+        <span>Action figures</span>
+      </div>
+      <div class="cg-item">
+        <img src="./img/C-20.jpg" alt="Camera"/>
+        <span>Mugs</span>
+      </div>
+    </div>
+    <a href="#" class="card-link">Shop now</a>
+  </div>
+
+  <!-- Card B: 2x2 grid -->
+  <div class="card">
+    <h3 class="card-heading">Most-loved travel essentials</h3>
+    <div class="card-grid4">
+      <div class="cg-item">
+        <img src="./img/C-21.jpg" alt="Tech"/>
+        <span>Backpacks</span>
+      </div>
+      <div class="cg-item">
+        <img src="./img/C-22.jpg" alt="Clothing"/>
+        <span>Suitcases</span>
+      </div>
+      <div class="cg-item">
+        <img src="./img/C-23.jpg" alt="Perfume"/>
+        <span>Accessories</span>
+      </div>
+      <div class="cg-item">
+        <img src="./img/C-24.jpg" alt="Shoes"/>
+        <span>Handbags</span>
+      </div>
+    </div>
+    <a href="#" class="card-link">Shop now</a>
+  </div>
+
+  <!-- Card C: 2x2 grid -->
+  <div class="card">
+    <h3 class="card-heading">Have more fun with family</h3>
+    <div class="card-grid4">
+      <div class="cg-item">
+        <img src="./img/C-25.jpg" alt="Outdoor"/>
+        <span>Outdoor Play Sets</span>
+      </div>
+      <div class="cg-item">
+        <img src="./img/C-26.jpg" alt="Games"/>
+        <span>Learning Toys</span>
+      </div>
+      <div class="cg-item">
+        <img src="./img/C-27.jpg" alt="Fragrance"/>
+        <span>Action Figures</span>
+      </div>
+      <div class="cg-item">
+        <img src="./img/C-28.jpg" alt="Education"/>
+        <span>Pretend Play Toys</span>
+      </div>
+    </div>
+    <a href="#" class="card-link">Shop now</a>
+  </div>
+
+  <!-- Card D: 2x2 grid -->
+  <div class="card">
+    <h3 class="card-heading">Most-loved watches</h3>
+    <div class="card-grid4">
+      <div class="cg-item">
+        <img src="./img/C-29.jpg" alt="Gaming"/>
+        <span>Women</span>
+      </div>
+      <div class="cg-item">
+        <img src="./img/C-30.jpg" alt="Hair"/>
+        <span>Men</span>
+      </div>
+      <div class="cg-item">
+        <img src="./img/C-31.jpg" alt="Bedding"/>
+        <span>Girls</span>
+      </div>
+      <div class="cg-item">
+        <img src="./img/C-32.jpg" alt="Store"/>
+        <span>Boys</span>
+      </div>
+    </div>
+    <a href="#" class="card-link">Shop now</a>
+  </div>
+
+</div>
+
+<!-- IMAGE SLIDER SECTION 3 -->
+<section class="img-slider-section">
+  <h2 class="img-slider-heading">More items to consider</h2>
+
+  <div class="img-slider-wrapper">
+    <!-- LEFT ARROW-->
+    <button class="img-arrow img-arrow-left-3" aria-label="Previous">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <!-- TRACK -->
+    <div class="img-slider-track" id="imgTrack-3">
+
+      <div class="img-slide"><img src="./img/HS-43.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-44.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-45.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-46.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-47.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-48.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-49.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-50.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-51.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-52.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-53.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-54.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-55.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-56.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-57.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-58.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-59.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-60.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-61.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-62.jpg" /></div>
+
+    </div>
+
+    <!-- RIGHT ARROW -->
+    <button class="img-arrow img-arrow-right-3" aria-label="Next">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <!-- SCROLLBAR (hover par aata hai) -->
+    <div class="img-scrollbar-wrap" id="imgScrollbarWrap-3">
+      <div class="img-scrollbar-thumb" id="imgScrollbarThumb-3"></div>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGE SLIDER SECTION 4 -->
+<section class="img-slider-section">
+  <h2 class="img-slider-heading">Top picks for Pakistan</h2>
+
+  <div class="img-slider-wrapper">
+    <!-- LEFT ARROW-->
+    <button class="img-arrow img-arrow-left-4" aria-label="Previous">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <!-- TRACK -->
+    <div class="img-slider-track" id="imgTrack-4">
+
+      <div class="img-slide"><img src="./img/HS-63.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-64.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-65.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-66.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-67.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-68.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-69.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-70.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-71.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-72.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-73.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-74.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-75.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-76.jpg" /></div>
+      <div class="img-slide"><img src="./img/HS-77.jpg" /></div>
+
+    </div>
+
+    <!-- RIGHT ARROW -->
+    <button class="img-arrow img-arrow-right-4" aria-label="Next">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <!-- SCROLLBAR (hover par aata hai) -->
+    <div class="img-scrollbar-wrap" id="imgScrollbarWrap-4">
+      <div class="img-scrollbar-thumb" id="imgScrollbarThumb-4"></div>
+    </div>
+  </div>
+</section>
 </body>
 </html>
