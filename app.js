@@ -1,4 +1,3 @@
-// Language dropdown toggle
   const langBtn = document.getElementById('langBtn');
   const langDropdown = document.getElementById('langDropdown');
 
@@ -24,13 +23,11 @@
     });
   });
 
-  // Cart count demo (click cart to increment)
   const cartCount = document.getElementById('cartCount');
   document.querySelector('.cart-btn').addEventListener('click', () => {
     cartCount.textContent = parseInt(cartCount.textContent) + 1;
   });
 
-  // ── SLIDER ──
   const slides = document.querySelectorAll('.slide');
   const dots   = document.querySelectorAll('.dot');
   let current  = 0;
@@ -54,7 +51,6 @@
  
   autoPlay();
 
-  // ══ IMAGE SLIDER JS ══
 (function () {
   const track     = document.getElementById('imgTrack');
   const prevBtn   = document.querySelector('.img-arrow-left');
@@ -68,7 +64,6 @@
   const totalSlides = slides.length;
   let currentIndex  = 0;
 
-  // Kitni images ek baar dikhen (CSS se match)
   function visibleCount() {
     const w = track.parentElement.offsetWidth;
     if (w <= 600)  return 2.5;
@@ -109,7 +104,6 @@
   prevBtn.addEventListener('click', () => goTo(currentIndex - Math.floor(visibleCount())));
   nextBtn.addEventListener('click', () => goTo(currentIndex + Math.floor(visibleCount())));
 
-  // Scrollbar drag
   let dragging = false, dragStartX = 0, dragStartLeft = 0;
   thumb.addEventListener('mousedown', e => {
     dragging = true;
@@ -128,14 +122,11 @@
   });
   document.addEventListener('mouseup', () => { dragging = false; });
 
-  // Window resize
   window.addEventListener('resize', () => goTo(Math.min(currentIndex, maxIndex())));
 
-  // Init
   goTo(0);
 })();
 
-// ══ IMAGE SLIDER JS 2 ══
 (function () {
   const track2    = document.getElementById('imgTrack-2');
   const prevBtn   = document.querySelector('.img-arrow-left-2');
@@ -149,7 +140,6 @@
   const totalSlides = slides.length;
   let currentIndex  = 0;
 
-  // Kitni images ek baar dikhen (CSS se match)
   function visibleCount() {
     const w = track2.parentElement.offsetWidth;
     if (w <= 600)  return 2.5;
@@ -190,7 +180,6 @@
   prevBtn.addEventListener('click', () => goTo(currentIndex - Math.floor(visibleCount())));
   nextBtn.addEventListener('click', () => goTo(currentIndex + Math.floor(visibleCount())));
 
-  // Scrollbar drag
   let dragging = false, dragStartX = 0, dragStartLeft = 0;
   thumb2.addEventListener('mousedown', e => {
     dragging = true;
@@ -209,14 +198,11 @@
   });
   document.addEventListener('mouseup', () => { dragging = false; });
 
-  // Window resize
   window.addEventListener('resize', () => goTo(Math.min(currentIndex, maxIndex())));
 
-  // Init
   goTo(0);
 })();
 
-// ══ IMAGE SLIDER JS 3 ══
 (function () {
   const track3    = document.getElementById('imgTrack-3');
   const prevBtn   = document.querySelector('.img-arrow-left-3');
@@ -230,7 +216,6 @@
   const totalSlides = slides.length;
   let currentIndex  = 0;
 
-  // Kitni images ek baar dikhen (CSS se match)
   function visibleCount() {
     const w = track3.parentElement.offsetWidth;
     if (w <= 600)  return 2.5;
@@ -271,7 +256,6 @@
   prevBtn.addEventListener('click', () => goTo(currentIndex - Math.floor(visibleCount())));
   nextBtn.addEventListener('click', () => goTo(currentIndex + Math.floor(visibleCount())));
 
-  // Scrollbar drag
   let dragging = false, dragStartX = 0, dragStartLeft = 0;
   thumb3.addEventListener('mousedown', e => {
     dragging = true;
@@ -290,14 +274,11 @@
   });
   document.addEventListener('mouseup', () => { dragging = false; });
 
-  // Window resize
   window.addEventListener('resize', () => goTo(Math.min(currentIndex, maxIndex())));
 
-  // Init
   goTo(0);
 })();
 
-// ══ IMAGE SLIDER JS 4 ══
 (function () {
   const track4    = document.getElementById('imgTrack-4');
   const prevBtn   = document.querySelector('.img-arrow-left-4');
@@ -311,7 +292,6 @@
   const totalSlides = slides.length;
   let currentIndex  = 0;
 
-  // Kitni images ek baar dikhen (CSS se match)
   function visibleCount() {
     const w = track4.parentElement.offsetWidth;
     if (w <= 600)  return 2.5;
@@ -352,7 +332,6 @@
   prevBtn.addEventListener('click', () => goTo(currentIndex - Math.floor(visibleCount())));
   nextBtn.addEventListener('click', () => goTo(currentIndex + Math.floor(visibleCount())));
 
-  // Scrollbar drag
   let dragging = false, dragStartX = 0, dragStartLeft = 0;
   thumb4.addEventListener('mousedown', e => {
     dragging = true;
@@ -371,9 +350,159 @@
   });
   document.addEventListener('mouseup', () => { dragging = false; });
 
-  // Window resize
   window.addEventListener('resize', () => goTo(Math.min(currentIndex, maxIndex())));
 
-  // Init
+  goTo(0);
+})();
+
+(function () {
+  const track5    = document.getElementById('imgTrack-5');
+  const prevBtn   = document.querySelector('.img-arrow-left-5');
+  const nextBtn   = document.querySelector('.img-arrow-right-5');
+  const thumb5    = document.getElementById('imgScrollbarThumb-5');
+  const scrollWrap5= document.getElementById('imgScrollbarWrap-5');
+
+  if (!track5) return;
+
+  const slides      = track5.querySelectorAll('.img-slide');
+  const totalSlides = slides.length;
+  let currentIndex  = 0;
+
+  function visibleCount() {
+    const w = track5.parentElement.offsetWidth;
+    if (w <= 600)  return 2.5;
+    if (w <= 1024) return 4;
+    return 6;
+  }
+
+  function slideWidth() {
+    return slides[0] ? slides[0].offsetWidth : 0;
+  }
+
+  function maxIndex() {
+    return Math.max(0, totalSlides - Math.floor(visibleCount()));
+  }
+
+  function goTo(i) {
+    currentIndex = Math.max(0, Math.min(i, maxIndex()));
+    track5.style.transform = `translateX(-${currentIndex * slideWidth()}px)`;
+    updateScrollbar();
+    updateArrows();
+  }
+
+  function updateArrows() {
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex >= maxIndex();
+  }
+
+  function updateScrollbar() {
+    const total   = maxIndex() + 1;
+    const pct     = total <= 1 ? 100 : (currentIndex / maxIndex()) * 100;
+    const wrapW   = scrollWrap5.offsetWidth;
+    const thumbW  = Math.max(40, wrapW / (totalSlides / Math.floor(visibleCount())));
+    const maxLeft = wrapW - thumbW;
+    thumb5.style.width = thumbW + 'px';
+    thumb5.style.left  = (maxLeft * currentIndex / Math.max(1, maxIndex())) + 'px';
+  }
+
+  prevBtn.addEventListener('click', () => goTo(currentIndex - Math.floor(visibleCount())));
+  nextBtn.addEventListener('click', () => goTo(currentIndex + Math.floor(visibleCount())));
+
+  let dragging = false, dragStartX = 0, dragStartLeft = 0;
+  thumb5.addEventListener('mousedown', e => {
+    dragging = true;
+    dragStartX    = e.clientX;
+    dragStartLeft = parseFloat(thumb5.style.left) || 0;
+    e.preventDefault();
+  });
+  document.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    const wrapW  = scrollWrap5.offsetWidth;
+    const thumbW = thumb5.offsetWidth;
+    const maxLeft= wrapW - thumbW;
+    const newLeft= Math.max(0, Math.min(dragStartLeft + (e.clientX - dragStartX), maxLeft));
+    const idx    = Math.round((newLeft / maxLeft) * maxIndex());
+    goTo(idx);
+  });
+  document.addEventListener('mouseup', () => { dragging = false; });
+
+  window.addEventListener('resize', () => goTo(Math.min(currentIndex, maxIndex())));
+
+  goTo(0);
+})();
+
+(function () {
+  const track6    = document.getElementById('imgTrack-6');
+  const prevBtn   = document.querySelector('.img-arrow-left-6');
+  const nextBtn   = document.querySelector('.img-arrow-right-6');
+  const thumb6    = document.getElementById('imgScrollbarThumb-6');
+  const scrollWrap6= document.getElementById('imgScrollbarWrap-6');
+
+  if (!track6) return;
+
+  const slides      = track6.querySelectorAll('.img-slide');
+  const totalSlides = slides.length;
+  let currentIndex  = 0;
+
+  function visibleCount() {
+    const w = track6.parentElement.offsetWidth;
+    if (w <= 600)  return 2.5;
+    if (w <= 1024) return 4;
+    return 6;
+  }
+
+  function slideWidth() {
+    return slides[0] ? slides[0].offsetWidth : 0;
+  }
+
+  function maxIndex() {
+    return Math.max(0, totalSlides - Math.floor(visibleCount()));
+  }
+
+  function goTo(i) {
+    currentIndex = Math.max(0, Math.min(i, maxIndex()));
+    track6.style.transform = `translateX(-${currentIndex * slideWidth()}px)`;
+    updateScrollbar();
+    updateArrows();
+  }
+
+  function updateArrows() {
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex >= maxIndex();
+  }
+
+  function updateScrollbar() {
+    const total   = maxIndex() + 1;
+    const pct     = total <= 1 ? 100 : (currentIndex / maxIndex()) * 100;
+    const wrapW   = scrollWrap6.offsetWidth;
+    const thumbW  = Math.max(40, wrapW / (totalSlides / Math.floor(visibleCount())));
+    const maxLeft = wrapW - thumbW;
+    thumb6.style.width = thumbW + 'px';
+    thumb6.style.left  = (maxLeft * currentIndex / Math.max(1, maxIndex())) + 'px';
+  }
+
+  prevBtn.addEventListener('click', () => goTo(currentIndex - Math.floor(visibleCount())));
+  nextBtn.addEventListener('click', () => goTo(currentIndex + Math.floor(visibleCount())));
+
+  let dragging = false, dragStartX = 0, dragStartLeft = 0;
+  thumb6.addEventListener('mousedown', e => {
+    dragging = true;
+    dragStartX    = e.clientX;
+    dragStartLeft = parseFloat(thumb6.style.left) || 0;
+    e.preventDefault();
+  });
+  document.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    const wrapW  = scrollWrap6.offsetWidth;
+    const thumbW = thumb6.offsetWidth;
+    const maxLeft= wrapW - thumbW;
+    const newLeft= Math.max(0, Math.min(dragStartLeft + (e.clientX - dragStartX), maxLeft));
+    const idx    = Math.round((newLeft / maxLeft) * maxIndex());
+    goTo(idx);
+  });
+  document.addEventListener('mouseup', () => { dragging = false; });
+
+  window.addEventListener('resize', () => goTo(Math.min(currentIndex, maxIndex())));
+
   goTo(0);
 })();
